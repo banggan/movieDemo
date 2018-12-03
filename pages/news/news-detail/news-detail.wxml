@@ -1,0 +1,23 @@
+<view class='container'>
+  <image class='head-image' src="{{isPlayingMusic ? newData.music.coverImg : newData.headImgSrc}}"></image><!--文章的头图区域-->
+  <image catchtap='onMusicTap' class='audio' src="{{isPlayingMusic?' /images/music/music-stop.png' : '/images/music/music-start.png'}}"></image>
+  <view class='author-date'><!--文章相关信息区域-->
+    <image class='avatar' src="{{newData.avatar}}"></image>
+    <text class='author'>{{newData.author}}</text>
+    <text class='const-text'>发表于</text>
+    <text class='date'>{{newData.dateTime}}</text>
+  </view>
+  <text class='title'>{{newData.title}}</text>
+  <view class='tool'>
+  <!-- 转发分享图片区域 -->
+    <view class='circle-img'>
+      <!-- 图片的显示与隐藏，数据绑定if/else来实现 -->
+      <image wx:if="{{collected}}" catchtap='onCollectionTap' src="/images/icon/collection.png"></image>
+      <image wx:else catchtap='onCollectionTap'  src="/images/icon/collection-anti.png"></image>
+      <image catchtap='onShareTap' class='share-img' src="/images/icon/share.png"></image>
+    </view>
+    <!-- 水平直线 -->
+    <view class='horizon'></view>
+  </view>
+  <text class='detail'>{{newData.detail}}</text>
+</view>

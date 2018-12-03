@@ -1,0 +1,27 @@
+<import src="movie-list/movie-list-template.wxml" />
+<import src="movie-grid/movie-grid-template.wxml" />
+
+<!-- 搜索框的设计 -->
+<view class="search">
+  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+  <input type="text" placeholder="毒液、神奇的动物" 
+  placeholder-class="placeholder" bindfocus="onBindFocus"
+  bindblur="onBindBlur" />
+  <image wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
+</view>
+<!-- 电影区域 -->
+<view class='container' wx:if="{{containerShow}}">
+  <view class='movie-template'>
+      <template is="movieListTemplate" data="{{...inTheaters}}"/>
+  </view>    
+   <view class='movie-template'>
+      <template is="movieListTemplate" data="{{...comingSoon}}" />
+  </view>  
+  <view class='movie-template'>
+      <template is="movieListTemplate" data="{{...top250}}" />
+  </view>  
+</view>
+<!-- 搜索框的页面 -->
+<view class='search-pannel' wx:if="{{searchPanelShow}}">
+    <template is="movieGridTemplate" data="{{...searchResult}}"/>
+</view>

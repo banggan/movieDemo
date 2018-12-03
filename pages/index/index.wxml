@@ -1,0 +1,11 @@
+<!--index.wxml小程序骨架文件-->
+<!--长按选中功能只有text包围的才可以:可以直接嵌套，对转义的支持-->
+<view class='container'>
+    <image class='avatar-user' src="{{userInfo.avatarUrl}}"></image>
+    <text class='avatar-name'>{{userInfo.nickName}}</text>
+    <view class='journey-container' bindtap="onTap">
+        <text class='journey'>Just Begining</text>
+    </view>
+</view>
+
+

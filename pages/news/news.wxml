@@ -1,0 +1,21 @@
+<import src="news-item/news-item-template.wxml" />
+<view>
+    <!--轮播图组件-->
+    <swiper catchtap='onSwiperTap' indicator-dots='true' autoplay='true' interval='5000'> 
+        <swiper-item><image data-newsId = '0'  src='/images/news/crab.png' ></image></swiper-item>
+        <swiper-item><image  data-newsId = '1' src='/images/news/bl.png' ></image></swiper-item>
+        <swiper-item><image  data-newsId = '2' src='/images/news/sls.png' ></image></swiper-item>
+        <swiper-item><image data-newsId = '3'src='/images/news/xiaolong.png'></image></swiper-item>
+         <swiper-item><image data-newsId = '4'src='/images/news/vr.png'></image></swiper-item>
+         <swiper-item><image data-newsId = '5'src='/images/news/iqiyi.png'></image></swiper-item>
+    </swiper>
+    <!--文章列表：4行垂直分布-->
+    <!--组件的复用，block包裹起来-->
+    <block wx:for="{{newsList}}" wx:for-item="item" wx:for-index="idx" wx:key="">
+    <!-- template模板  is=name 加...直接展开了绑定的对象，使用时直接用名字即可-->
+    <!-- newsId绑定到元素的属性中使用data-newsId:自定义属性以data开头 -->
+      <view catchtap="onNewTap" data-newsId="{{item.newsId}}">
+        <template is="news-item"  data="{{...item}}" /> 
+      </view>
+    </block>
+</view>
